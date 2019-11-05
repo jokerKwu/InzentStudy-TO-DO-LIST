@@ -27,7 +27,7 @@
 <body>
 	<div id="contents" align="center">
 		<h1> 할일 등록 </h1>
-		<form action="writeProcess.jsp" method="post">
+		<form action="WriteProcess" method="post">
 			<div class="section">
 				<span>어떤일인가요?</span><br>
 				<input type="text" name="what">

@@ -9,6 +9,9 @@
 
     pageEncoding="UTF-8"%>
 
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 
 <html>
@@ -25,7 +28,7 @@
 
 <body>
 	<%
-		request.setCharacterEncoding("utf-8");
+		
 		List<TodoDto> list = new ArrayList<TodoDto>();
 		TodoDao manager = TodoDao.getInstance();
 		list = manager.getTodos();
@@ -51,13 +54,14 @@
 			<%
 				TodoDto todoDto=list.get(i);
 				String typeCheck=todoDto.getType();
+				
 				if(typeCheck.equals("TODO")){
 			%>
 			<tr>
 			<td>
-				<form action="updateProcess.jsp" method="post">
+				<form action="UpdateProcess" method="post">
 					<div class="todoBox">
-						<%= todoDto.getTitle() %><br>
+						<%=todoDto.getTitle() %><br>
 						<%=todoDto.getName() %>
 				
 					<input type="hidden" name="id" value=<%=todoDto.getId() %>>
@@ -100,7 +104,7 @@
 			%>
 			<tr>
 			<td>
-				<form action="updateProcess.jsp" method="post">
+				<form action="UpdateProcess" method="post">
 					<div class="doingBox">
 						<%= todoDto.getTitle() %><br>
 						<%=todoDto.getName() %>
@@ -148,7 +152,7 @@
 			%>
 			<tr>
 			<td>
-				<form action="updateProcess.jsp" method="post">
+				<form action="UpdateProcess" method="post">
 					<div class="doneBox">
 						<%= todoDto.getTitle() %><br>
 						<%=todoDto.getName() %>
